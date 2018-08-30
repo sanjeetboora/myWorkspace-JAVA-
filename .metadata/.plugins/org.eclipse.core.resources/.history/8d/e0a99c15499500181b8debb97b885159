@@ -1,0 +1,48 @@
+package Arrays;
+
+import java.util.Scanner;
+
+public class countInversions {
+	public static Scanner scn = new Scanner(System.in);
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		// int n = scn.nextInt();
+		// int arr[] = new int[n];
+		// for (int i = 0; i < n; i++) {
+		// arr[i] = scn.nextInt();
+		// }
+		int arr[] = { 1, 20, 6, 4, 5 };
+		int n = arr.length;
+		System.out.println(inversions(arr, 0, n-1));
+
+	}
+
+	public static int inversions(int arr[], int l, int h) {
+		int result = 0;
+		while (h>l) {
+			int mid = (h + l) / 2;
+			int left = inversions(arr, l, mid);
+			int right = inversions(arr, mid + 1, h);
+			int inv = merge(arr, l, h, mid+1);
+			result = left + right + inv;
+		}
+		return result;
+	}
+
+	public static int merge(int arr[], int l, int h, int m) {
+		int count = 0;
+		if (l <= m && m <= h) {
+			int i = l, j = m + 1;
+			while (i <= m && j <= h) {
+				if (arr[i] > arr[j]) {
+					count += (m - i + 1);
+					i++;
+				} else {
+					j++;
+				}
+			}
+		}
+		return count;
+	}
+}

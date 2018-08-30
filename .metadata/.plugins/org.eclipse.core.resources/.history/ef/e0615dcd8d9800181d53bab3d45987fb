@@ -1,0 +1,51 @@
+package codersdbit;
+
+import java.util.Scanner;
+
+public class ques1 {
+	public static Scanner scn = new Scanner(System.in);
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		// long N = scn.nextlong();
+		// long arr[] = new long[N];
+		// for (long i = 0; i < N; i++) {
+		// arr[i] = scn.nextlong();
+		// }
+		long arr[] = { 1, 2, 3, 4 };
+		System.out.println(numdivisor(arr));
+	}
+
+	public static long numdivisor(long arr[]) {
+		long prod = 1;
+		for (int i = 0; i < arr.length; i++) {
+			prod *= arr[i];
+		}
+		long primes = sieve(prod);
+		return primes;
+
+	}
+
+	public static long sieve(long prod) {
+		int size=(int)Math.sqrt(prod);
+		boolean prime[] = new boolean[size + 1];
+		for (int i = 0; i < size+1; i++)
+			prime[i] = true;
+
+		for (int p = 2; p * p <= size; p++) {
+
+			if (prime[p] == true) {
+
+				for (int i = p * 2; i <= size; i += p)
+					prime[i] = false;
+			}
+		}
+		long count = 0;
+		for (int i = 2; i <= size; i++) {
+			if (prime[i] == true && prod % i == 0) {
+				count++;
+			}
+		}
+		return count;
+	}
+}

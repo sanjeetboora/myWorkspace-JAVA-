@@ -1,0 +1,35 @@
+package Arrays;
+
+import java.util.*;
+
+class Inter {
+	int start;
+	int end;
+}
+
+public class mergeIntervals {
+	public static Scanner scn = new Scanner(System.in);
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int n = scn.nextInt();
+		Inter arr[] = new Inter[n];
+		for (int i = 0; i < n; i++) {
+			Inter el = new Inter();
+			el.start = scn.nextInt();
+			el.end = scn.nextInt();
+			arr[i] = el;
+		}
+		// Inter arr[] = { { 6, 8 }, { 1, 9 }, { 2, 4 }, { 4, 7 } };
+		Arrays.sort(arr);
+		// sortarr(arr, n - 1);
+		for (int i = 0; i < arr.length; i++) {
+			System.out.println(arr[i].start + ", " + arr[i].end);
+		}
+	}
+
+	public int compare(Inter rental1, Inter rental2) {
+		return (rental1.start).compareTo(rental2.start);
+	}
+
+}

@@ -1,0 +1,15 @@
+package Arrays;
+
+import java.util.Scanner;
+
+public class KConcat {
+	public static Scanner scn = new Scanner(System.in);
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int test = scn.nextInt();
+		for(test>0) {
+			
+		}
+		}
+
+}

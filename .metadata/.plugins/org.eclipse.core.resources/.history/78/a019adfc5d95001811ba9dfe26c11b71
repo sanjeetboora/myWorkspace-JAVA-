@@ -1,0 +1,25 @@
+package Arrays;
+
+import java.util.Scanner;
+
+class Interval {
+	int start;
+	int end;
+}
+
+public class mergeIntervals {
+	public static Scanner scn = new Scanner(System.in);
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int n = scn.nextInt();
+		int arr[] = new int[n];
+		for (int i = 0; i < n; i++) {
+			arr[i] = scn.nextInt();
+		}
+		sortarr(arr, n - 1);
+		for (int i = 0; i < arr.length; i++) {
+			System.out.print(arr[i] + ", ");
+		}
+	}
+}
