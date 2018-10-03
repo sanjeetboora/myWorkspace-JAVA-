@@ -1,0 +1,26 @@
+package lunchtime2018;
+
+import java.util.Scanner;
+
+public class judgintgDelay {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner scn = new Scanner(System.in);
+		long x = scn.nextLong();
+		long count = 0;
+
+		for (long j = 0; j < x; j++) {
+			long n = scn.nextLong();
+			for (long i = 0; i < n; i++) {
+				long n1 = scn.nextLong();
+				long n2 = scn.nextLong();
+				if ((n2 - n1) > 5) {
+					count++;
+				}
+			}
+			System.out.println(count);
+		}
+
+	}
+}
